@@ -1,0 +1,30 @@
+﻿<Window
+    x:Class="ReproFlipView.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gu="https://github.com/GuOrg/Gu.Wpf.FlipView"
+    xmlns:local="clr-namespace:ReproFlipView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    x:Name="MainPage"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <gu:FlipView x:Name="FlipView"
+                     ItemsSource="{Binding FlipViewItems}">
+            <gu:FlipView.ItemTemplate>
+                <DataTemplate>
+                    <ListView SelectionMode="Multiple" ItemsSource="{Binding Value}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DataTemplate>
+            </gu:FlipView.ItemTemplate>
+        </gu:FlipView>
+    </Grid>
+</Window>
